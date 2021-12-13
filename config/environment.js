@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'yelp-clone',
+    modulePrefix: 'not-yelp',
     environment,
     rootURL: '/',
     locationType: 'auto',
