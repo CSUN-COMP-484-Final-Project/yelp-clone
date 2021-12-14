@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "start:dev": "nodemon --watch routes --watch index.js ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "dotenv-safe": "^8.2.0",
+    "fs-router": "^0.5.0",
+    "lodash": "^4.17.21",
+    "micro": "^9.3.4",
+    "micro-morgan": "^0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
