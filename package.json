@@ -20,7 +20,9 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "ember": "ember",
+    "ember:g": "ember generate"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
