@@ -43,9 +43,32 @@ header .link.active {
   text-decoration: underline;
 }
 
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  height: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .btn.primary {
   background-color: #b20000;
+  border-color: #b20000;
   color: white;
+}
+
+.btn.primary.search {
+  width: 60%;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -60,8 +83,52 @@ header .link.active {
 }
 
 .home-container .form-container {
-  flex-basis: 75%;
+  flex-basis: 500px;
+  border: 0.25rem solid black;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+.home-container .form-container form {
+  display: flex;
+  flex-direction: column;
 }
 
 .home-container .results-container {
+}
+
+.icon-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.input-radius,
+.input-location {
+  display: flex;
+}
+
+.input-radius #radius,
+.input-location #location {
+  flex-grow: 1;
+}
+
+.radius-unit {
+  margin-left: 0.5rem;
+}
+
+.price-points {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-point {
+  font-size: 0.9rem;
+}
+
+input.price-point {
+  cursor: pointer;
 }

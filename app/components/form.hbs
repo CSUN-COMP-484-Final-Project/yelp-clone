@@ -1,0 +1,55 @@
+<form id={{this.id}}>
+  <label for='location'>Where do you want to eat?</label>
+  <div class='input-location'>
+    <IconButton {{on 'click' this.setCurrentLocation}}>
+      <i class='bi bi-geo'></i>
+    </IconButton>
+    <Input
+      @type='text'
+      id='location'
+      @value={{this.location}}
+      placeholder='Enter an address, city, or state'
+    />
+  </div>
+
+  {{! Must convert from miles to meters }}
+  <label for='radius'>What is the furthest you are willing to travel?</label>
+  <div class='input-radius'>
+    <Input
+      @type='number'
+      id='radius'
+      @value={{this.radius}}
+      placeholder='Enter a max travel distance'
+      min='0'
+    />
+    <label class='radius-unit'>miles</label>
+  </div>
+
+  <label for='term'>What kind of food do you want?</label>
+  <Input @type='text' id='term' @value={{this.term}} placeholder='Bubble tea' />
+
+  <div class='price-points'>
+    <label>How much are you willing to spend?</label>
+
+    {{#each this.pricePoints as |price index|}}
+      <div class='price-point'>
+        <Input
+          @type='checkbox'
+          id={{price}}
+          value={{index}}
+          class='price-point'
+        />
+        <label for={{price}}>{{price}}</label>
+      </div>
+    {{/each}}
+
+  </div>
+
+  <div class='btn-container'>
+    <button
+      type='button'
+      class='btn primary search'
+      {{on 'click' this.submit}}
+    >Search</button>
+  </div>
+</form>
