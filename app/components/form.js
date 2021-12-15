@@ -1,14 +1,18 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import { toMeters } from '../helpers/to-meters';
 
 export default class FormComponent extends Component {
   @service yelp;
   @service store;
+  @service geolocation;
+  @tracked location;
   constructor(...args) {
     super(...args);
     this.id = 'form';
     this.location = 'Northridge';
+    this.position;
     this.radius = 5;
     this.term = '';
     this.pricePoints = ['$', '$$', '$$$', '$$$$'];
@@ -33,6 +37,27 @@ export default class FormComponent extends Component {
 
   setCurrentLocation = () => {
     console.log('Setting current location');
+    this.geolocation.currentLocation(
+      (position) => {
+        this.position = position;
+        this.location = 'Current Location';
+      },
+      (error) => {
+        switch (error.code) {
+          case error.TIMEOUT:
+          case error.PERMISSION_DENIED:
+            alert('Please enable location services on this browser.');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            alert('Location information is unavailable.');
+            break;
+        }
+      },
+      {
+        maximumAge: Infinity,
+        timeout: 15000,
+      }
+    );
   };
 
   serializeParams = () => {
@@ -43,6 +68,15 @@ export default class FormComponent extends Component {
     // Location
     if (this.location) {
       payload['location'] = this.location;
+    }
+
+    if (this.location === 'Current Location' && this.position) {
+      // Remove location and use coords instead
+      delete payload['location'];
+      const { coords } = this.position;
+      const { latitude, longitude } = coords;
+      payload['latitude'] = latitude;
+      payload['longitude'] = longitude;
     }
 
     // Limit the radius range between 1 and 24 miles
