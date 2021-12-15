@@ -49,8 +49,7 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.APP.API_URL =
-      'http://notyelpapi-env.eba-yhz36tiv.us-west-1.elasticbeanstalk.com/';
+    ENV.APP.API_URL = 'https://not-yelp.suprsoftware.io/';
     ENV.APP.API_TOKEN =
       'FzF3sPnEBxJ0TnGjBAh1b7iZ+01u+T5KgoC+EYrqGqOWFHGwxafGE3TWIxZgUSMzAyr8u4j0ljilJBcdd1Nn6g==';
   }
