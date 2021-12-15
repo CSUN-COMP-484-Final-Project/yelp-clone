@@ -63,12 +63,28 @@ header .link.active {
 
 .btn.primary.search {
   width: 60%;
+  margin-bottom: 1rem;
+}
+
+.btn.primary.favorite,
+.btn.primary.save {
+  width: 50%;
+  margin-bottom: 1rem;
 }
 
 .btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
+}
+
+.btn-container-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
 }
 
 .container {
@@ -99,6 +115,13 @@ header .link.active {
 }
 
 .home-container .results-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.25rem solid black;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  margin-left: 0.5rem;
 }
 
 .icon-btn {
@@ -135,4 +158,107 @@ header .link.active {
 
 input.price-point {
   cursor: pointer;
+}
+
+.business {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.business h1,
+.business h4,
+.business h5 {
+  margin: 0;
+}
+
+.business-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.business-address {
+  display: flex;
+  margin: 0.5rem 0 0;
+}
+
+.business-address i {
+  margin-right: 0.5rem;
+}
+
+.business-phone {
+  display: flex;
+  align-items: center;
+  margin-top: -0.25rem;
+}
+.business-phone .bi-telephone {
+  margin-right: 0.5rem;
+}
+
+.business-categories {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  font-weight: bold;
+  height: 1.5rem;
+  margin-top: -0.5rem;
+}
+
+.business-categories .bi-dot {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.business-label {
+  margin-top: 0.125rem;
+  margin-right: 0.25rem;
+}
+
+.business-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  background-color: white;
+  padding: 0 0.5rem 0;
+  margin-top: 0.125rem;
+}
+
+.business-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.business-image img {
+  height: 250px;
+  width: 250px;
+  border-radius: 1.5rem;
+  padding: 0 1rem 0;
+}
+
+.business-reviews {
+  display: flex;
+  align-items: center;
+}
+
+.business-reviews .bi-star {
+  margin-right: 0.25rem;
+}
+
+.business-open {
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.business-open .closed {
+  color: red;
+}
+
+.business-open .open {
+  color: green;
 }
