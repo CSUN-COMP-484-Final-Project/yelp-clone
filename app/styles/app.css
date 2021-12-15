@@ -159,6 +159,13 @@ header .link.active {
   font-size: 0.9rem;
 }
 
+.input-open_now {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#open_now,
 input.price-point {
   cursor: pointer;
 }

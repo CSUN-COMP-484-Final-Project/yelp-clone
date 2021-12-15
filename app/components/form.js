@@ -19,7 +19,7 @@ export default class FormComponent extends Component {
     this.pricePointFlags = [false, false, false, false];
     this.openNow = true;
     this.defaultParams = {
-      open_now: true,
+      limit: 50,
     };
   }
 
@@ -103,6 +103,8 @@ export default class FormComponent extends Component {
     if (price) {
       payload['price'] = price;
     }
+
+    payload['open_now'] = this.openNow;
 
     return payload;
   };
