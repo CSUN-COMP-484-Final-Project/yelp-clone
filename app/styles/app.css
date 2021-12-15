@@ -159,6 +159,12 @@ header .link.active {
   font-size: 0.9rem;
 }
 
+.price-point label,
+.price-point-checkbox,
+.input-open_now label {
+  cursor: pointer;
+}
+
 .input-open_now {
   display: flex;
   justify-content: space-between;
