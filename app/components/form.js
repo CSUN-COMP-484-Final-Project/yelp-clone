@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default class FormComponent extends Component {
   @service yelp;
+  @service store;
   constructor(...args) {
     super(...args);
     this.id = 'form';
@@ -22,7 +23,10 @@ export default class FormComponent extends Component {
       .businessesSearch({
         ...this.serializeParams(),
       })
-      .then(console.log)
+      .then(({ data }) => {
+        const { businesses } = data;
+        this.store.setRandomBusiness(businesses);
+      })
       .catch(console.error);
   };
 

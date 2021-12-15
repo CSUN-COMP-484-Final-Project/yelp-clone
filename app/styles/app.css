@@ -83,10 +83,14 @@ header .link.active {
 }
 
 .home-container .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-basis: 500px;
   border: 0.25rem solid black;
   border-radius: 0.25rem;
   box-sizing: border-box;
+  /* height: 400px; */
 }
 
 .home-container .form-container form {
