@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import _ from 'lodash/fp';
 
 export default class Store extends Service {
   @tracked business = [];
@@ -18,18 +19,20 @@ export default class Store extends Service {
   };
 
   saveBusiness = (business) => {
-    this.saved = [...this.saved, business];
+    this.saved = _.uniq([...this.saved, business]);
+    alert('Saved business!');
   };
 
   favoriteBusiness = (business) => {
-    this.favorites = [...this.favorites, business];
+    this.favorites = _.uniq([...this.favorites, business]);
+    alert('Favorited business!');
   };
 
   setFavorites = (businesses) => {
-    this.favorites = [...businesses];
+    this.favorites = _.uniq([...businesses]);
   };
 
   setSaved = (businesses) => {
-    this.saved = [...businesses];
+    this.saved = _.uniq([...businesses]);
   };
 }

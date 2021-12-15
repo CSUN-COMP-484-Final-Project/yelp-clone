@@ -18,5 +18,6 @@ export default class SavedListComponent extends Component {
     const [removed] = temp.splice(index, 1);
     this.store.setSaved(temp);
     console.log('Removed', removed);
+    alert('Removed business!');
   };
 }

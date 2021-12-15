@@ -18,5 +18,6 @@ export default class FavoritesListComponent extends Component {
     const [removed] = temp.splice(index, 1);
     this.store.setFavorites(temp);
     console.log('Removed', removed);
+    alert('Removed business!');
   };
 }
