@@ -29,6 +29,10 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.APP.API_URL = 'http://localhost:4201/';
+    ENV.APP.API_TOKEN =
+      'rqO2vFYm3NXhwVF1F7VHNEoscxr2OWV2wsqYtSsmEGGbWqSbkSwC3qsXEjBqjkCdeejCIL/sh7aRXWhwDUah5w==';
   }
 
   if (environment === 'test') {
@@ -45,6 +49,10 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.APP.API_URL =
+      'http://notyelpapi-env.eba-yhz36tiv.us-west-1.elasticbeanstalk.com/';
+    ENV.APP.API_TOKEN =
+      'FzF3sPnEBxJ0TnGjBAh1b7iZ+01u+T5KgoC+EYrqGqOWFHGwxafGE3TWIxZgUSMzAyr8u4j0ljilJBcdd1Nn6g==';
   }
 
   return ENV;
