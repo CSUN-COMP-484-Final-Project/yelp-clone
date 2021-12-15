@@ -11,8 +11,6 @@ export default class YelpService extends Service {
         authorization: `Bearer ${ENV.APP.API_TOKEN}`,
       },
     });
-    console.log(ENV.APP.API_URL);
-    console.log(ENV.APP.API_TOKEN);
   }
 
   businessesSearch(params) {
