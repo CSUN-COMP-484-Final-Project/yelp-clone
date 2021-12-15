@@ -25,9 +25,15 @@
                 {{business.location.state}}
                 {{business.location.zip_code}}</h4>
             </div>
+
             <div class='business-phone'>
               <i class='bi bi-telephone'></i>
               <h5>{{business.display_phone}}</h5>
+            </div>
+
+            <div class='business-website'>
+              <i class='bi bi-globe'></i>
+              <a target='_blank' href={{business.url}}><h4>Website</h4></a>
             </div>
 
             <div class='business-reviews'>
