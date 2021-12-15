@@ -136,6 +136,7 @@ header .link.active {
 .input-radius,
 .input-location {
   display: flex;
+  margin-bottom: 0.25rem;
 }
 
 .input-term #term,
@@ -298,6 +299,7 @@ input.price-point {
   align-items: center;
 }
 
+.saved-list-container h2,
 .favorites-list-container h2 {
   margin: 0;
 }
