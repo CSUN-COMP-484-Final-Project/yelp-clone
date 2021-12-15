@@ -137,16 +137,13 @@ header .link.active {
 .input-location {
   display: flex;
   margin-bottom: 0.25rem;
+  height: 1.5em;
 }
 
 .input-term #term,
 .input-radius #radius,
 .input-location #location {
   flex-grow: 1;
-}
-
-.input-term {
-  height: 1.5em;
 }
 
 .radius-unit {
