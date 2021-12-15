@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #b20000;
-  margin: 0.75rem;
+  margin: 0.75rem 0.75rem 0;
 }
 
 header h1 {
@@ -106,7 +106,6 @@ header .link.active {
   border: 0.25rem solid black;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  /* height: 400px; */
 }
 
 .home-container .form-container form {
@@ -121,7 +120,7 @@ header .link.active {
   border: 0.25rem solid black;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 
 .icon-btn {
@@ -133,14 +132,20 @@ header .link.active {
   height: 1.5em;
 }
 
+.input-term,
 .input-radius,
 .input-location {
   display: flex;
 }
 
+.input-term #term,
 .input-radius #radius,
 .input-location #location {
   flex-grow: 1;
+}
+
+.input-term {
+  height: 1.5em;
 }
 
 .radius-unit {
@@ -241,7 +246,10 @@ input.price-point {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.25rem;
+  border-radius: 1.75px;
+  border-width: 1px;
+  border-color: rgb(133, 133, 133);
+  border-style: solid;
   background-color: white;
   padding: 0 0.5rem 0;
   margin-top: 0.125rem;
@@ -281,4 +289,24 @@ input.price-point {
 
 .business-open .open {
   color: green;
+}
+
+.saved-list-container,
+.favorites-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites-list-container h2 {
+  margin: 0;
+}
+
+.business-item-container {
+  border: 0.25rem solid black;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  width: 55%;
+  /* height: 40; */
+  margin-bottom: 1rem;
 }

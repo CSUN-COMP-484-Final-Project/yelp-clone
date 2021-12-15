@@ -24,4 +24,12 @@ export default class Store extends Service {
   favoriteBusiness = (business) => {
     this.favorites = [...this.favorites, business];
   };
+
+  setFavorites = (businesses) => {
+    this.favorites = [...businesses];
+  };
+
+  setSaved = (businesses) => {
+    this.saved = [...businesses];
+  };
 }
