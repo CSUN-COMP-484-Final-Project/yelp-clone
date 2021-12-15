@@ -55,7 +55,7 @@ export default class FormComponent extends Component {
       },
       {
         maximumAge: Infinity,
-        timeout: 15000,
+        timeout: 30000,
       }
     );
   };
