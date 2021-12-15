@@ -20,13 +20,14 @@
       id='radius'
       @value={{this.radius}}
       placeholder='Enter a max travel distance'
-      min='0'
+      min='1'
+      max='24'
     />
     <label class='radius-unit'>miles</label>
   </div>
 
   <label for='term'>What kind of food do you want?</label>
-  <Input @type='text' id='term' @value={{this.term}} placeholder='Bubble tea' />
+  <Input @type='text' id='term' @value={{this.term}} placeholder='Bubble Tea' />
 
   <div class='price-points'>
     <label>How much are you willing to spend?</label>
@@ -36,7 +37,7 @@
         <Input
           @type='checkbox'
           id={{price}}
-          value={{index}}
+          @checked={{(get this.pricePointFlags index)}}
           class='price-point'
         />
         <label for={{price}}>{{price}}</label>
