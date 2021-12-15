@@ -10,6 +10,9 @@ export default class GeolocationService extends Service {
   }
 
   currentLocation = (...args) => {
+    if (!this.geolocation) {
+      return alert('Geolocation is not supported on your browser!');
+    }
     const [onSuccess, onError, options] = args;
     return this.geolocation.getCurrentPosition(onSuccess, onError, options);
   };
