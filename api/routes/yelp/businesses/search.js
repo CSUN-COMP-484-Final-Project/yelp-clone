@@ -1,16 +1,11 @@
-require('dotenv').config();
-const axios = require('axios').default;
+const axios = require('../../../lib/axios');
+const { authenticate, authorize } = require('../../../auth');
 
-module.exports.GET = async (req) => {
-  const params = req.query;
-  const { data } = await axios.get(
-    'https://api.yelp.com/v3/businesses/search',
-    {
-      headers: {
-        authorization: `Bearer ${process.env.DEV_YELP_API_KEY}`,
-      },
-      params,
-    }
-  );
+async function yelpBusinessesSearch(params, context) {
+  await authorize('yelp/businesses/search', context);
+  const { data } = await axios.get('/businesses/search', { params });
   return data;
-};
+}
+
+module.exports.GET = async (req) =>
+  await yelpBusinessesSearch(req.query, await authenticate(req));

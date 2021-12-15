@@ -1,4 +1,7 @@
-require('dotenv').config();
+require('dotenv-safe').config({
+  path: process.env.NODE_ENV === 'production' ? './.env.prod' : './.env.dev',
+  allowEmptyValues: true,
+});
 
 const path = require('path');
 const micro = require('micro');
@@ -6,7 +9,7 @@ const morgan = require('micro-morgan');
 const fsRouter = require('fs-router');
 const _ = require('lodash/fp');
 
-const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.split(',');
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || '').split(',');
 const ALLOWED_METHODS = ['OPTIONS', 'GET'];
 
 const match = fsRouter(path.join(__dirname, 'routes'));
