@@ -1,89 +1,116 @@
 {{#if this.store.business}}
   {{#if (get this.store.business 0)}}
     {{#let (get this.store.business 0) as |business|}}
-      <div class='business'>
-        <div class='business-details'>
-          <div>
-            <h1>{{business.name}}</h1>
-            <div class='business-categories'>
-              {{#each business.categories as |category index|}}
-                <div class='business-category'>
-                  {{category.title}}
+      <div>
+        <div class='business'>
+          <div class='business-details'>
+            <div>
+              <div class='business-header'>
+                {{#if (media 'isMobile')}}
+                  {{! Combine the name and image }}
+                  <div class='business-name-category'>
+                    <h1>{{business.name}}</h1>
+                    <div class='business-categories'>
+                      {{#each business.categories as |category index|}}
+                        <div class='business-category'>
+                          {{category.title}}
+                        </div>
+                        {{#if (not-eq category business.categories.lastObject)}}
+                          <i class='bi bi-dot'></i>
+                        {{/if}}
+                      {{/each}}
+                    </div>
+                  </div>
+                  <div class='business-image'>
+                    <img src='{{business.image_url}}' />
+                  </div>
+                {{else}}
+                  <h1>{{business.name}}</h1>
+                {{/if}}
+              </div>
+              {{#if (media 'isMobile')}}{{else}}
+                <div class='business-categories'>
+                  {{#each business.categories as |category index|}}
+                    <div class='business-category'>
+                      {{category.title}}
+                    </div>
+                    {{#if (not-eq category business.categories.lastObject)}}
+                      <i class='bi bi-dot'></i>
+                    {{/if}}
+                  {{/each}}
                 </div>
-                {{#if (not-eq category business.categories.lastObject)}}
-                  <i class='bi bi-dot'></i>
-                {{/if}}
-              {{/each}}
-            </div>
-            <div class='business-address'>
-              <i class='bi bi-building'></i>
-              <h4>{{business.location.address1}},
-                {{#if business.location.address2}}
-                  {{business.location.address2}},
-                {{/if}}
-                {{business.location.city}},
-                {{business.location.state}}
-                {{business.location.zip_code}}</h4>
-            </div>
-
-            <div class='business-phone'>
-              <i class='bi bi-telephone'></i>
-              <h4>{{business.display_phone}}</h4>
-            </div>
-
-            <div class='business-website'>
-              <i class='bi bi-globe'></i>
-              <a
-                target='_blank'
-                href={{business.url}}
-                rel='noopener noreferrer'
-              ><h4>Website</h4></a>
-            </div>
-
-            <div class='business-reviews'>
-              <div class='business-label'><h4>Rating:</h4></div>
-              <div class='business-label'><h4>{{business.rating}}</h4></div>
-              <i class='bi bi-star'></i>
-              <div class='business-label'><h4
-                >({{business.review_count}}&nbsp;Reviews)</h4></div>
-            </div>
-            <div class='business-price'>
-              <div class='business-label'><h4
-                >Price:&nbsp;{{business.price}}</h4></div>
-            </div>
-            <div class='business-open'>
-              {{#if business.is_closed}}
-                {{! Closed }}
-                <span class='closed'>Closed</span>
-              {{else}}
-                {{! Open }}
-                <span class='open'>Open</span>
               {{/if}}
-              <i class='bi bi-dot'></i>
-              <div class='business-distance'>
-                {{to-miles business.distance}}&nbsp;miles&nbsp;away
+              <div class='business-address'>
+                <i class='bi bi-building'></i>
+                <h4>{{business.location.address1}},
+                  {{#if business.location.address2}}
+                    {{business.location.address2}},
+                  {{/if}}
+                  {{business.location.city}},
+                  {{business.location.state}}
+                  {{business.location.zip_code}}</h4>
+              </div>
+              <div class='business-phone'>
+                <i class='bi bi-telephone'></i>
+                <h4>{{business.display_phone}}</h4>
+              </div>
+
+              <div class='business-website'>
+                <i class='bi bi-globe'></i>
+                <a
+                  target='_blank'
+                  href={{business.url}}
+                  rel='noopener noreferrer'
+                ><h4>Website</h4></a>
+              </div>
+
+              <div class='business-reviews'>
+                <div class='business-label'><h4>Rating:</h4></div>
+                <div class='business-label'><h4>{{business.rating}}</h4></div>
+                <i class='bi bi-star'></i>
+                <div class='business-label'><h4
+                  >({{business.review_count}}&nbsp;Reviews)</h4></div>
+              </div>
+              <div class='business-price'>
+                <div class='business-label'><h4
+                  >Price:&nbsp;{{business.price}}</h4></div>
+              </div>
+              <div class='business-open'>
+                {{#if business.is_closed}}
+                  {{! Closed }}
+                  <span class='closed'>Closed</span>
+                {{else}}
+                  {{! Open }}
+                  <span class='open'>Open</span>
+                {{/if}}
+                <i class='bi bi-dot'></i>
+                <div class='business-distance'>
+                  {{to-miles business.distance}}&nbsp;miles&nbsp;away
+                </div>
               </div>
             </div>
           </div>
-          <div class='btn-container-col'>
-            <button
-              type='button'
-              class='btn primary save'
-              {{action 'save' business}}
-            >
-              Save for Later
-            </button>
-            <button
-              type='button'
-              class='btn primary favorite'
-              {{action 'favorite' business}}
-            >
-              Add to Favorites
-            </button>
-          </div>
+          {{#if (media 'isMobile')}}{{else}}
+            <div class='business-image'>
+              <img src='{{business.image_url}}' />
+            </div>
+          {{/if}}
         </div>
-        <div class='business-image'>
-          <img src='{{business.image_url}}' />
+        <div class='btn-container-col'>
+          <button
+            type='button'
+            class='btn primary save'
+            {{action 'save' business}}
+          >
+            Save
+          </button>
+          <button
+            type='button'
+            class='btn primary favorite'
+            {{action 'favorite' business}}
+          >
+            Favorite
+          </button>
         </div>
       </div>
     {{/let}}
