@@ -18,4 +18,12 @@ export default class YelpService extends Service {
       params,
     });
   }
+
+  businesses(id) {
+    if (id) {
+      return this.axios.get('/businesses', {
+        params: { id },
+      });
+    }
+  }
 }

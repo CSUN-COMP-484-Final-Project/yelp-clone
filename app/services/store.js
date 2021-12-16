@@ -1,4 +1,4 @@
-import Service from '@ember/service';
+import Service, { inject } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import _ from 'lodash/fp';
 
@@ -65,6 +65,7 @@ const readCachedSavedForLater = readCached(SAVED_FOR_LATER_KEY);
 const readCachedFavorites = readCached(FAVORITES_KEY);
 
 export default class Store extends Service {
+  @inject yelp;
   @tracked business = [];
   @tracked saved = [];
   @tracked favorites = [];
@@ -77,10 +78,20 @@ export default class Store extends Service {
     this.favorites = [...readCachedFavorites];
   }
 
-  setRandomBusiness = (businesses) => {
-    const randomBusiness =
+  setRandomBusiness = async (businesses) => {
+    let randomBusiness =
       businesses[Math.floor(Math.random() * businesses.length)];
     console.log('Selected', randomBusiness);
+
+    // Make another api call so we can append hours to the
+    // business
+    try {
+      const { data } = await this.yelp.businesses(randomBusiness?.id);
+      const { hours } = data;
+      randomBusiness['is_open_now'] = hours[0]?.is_open_now;
+    } catch (e) {
+      console.error(e);
+    }
     this.business = [randomBusiness];
   };
 
