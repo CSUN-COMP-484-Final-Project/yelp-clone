@@ -63,28 +63,29 @@ header .link.active {
 
 .btn.primary.search {
   width: 60%;
-  margin-bottom: 1rem;
 }
 
 .btn.primary.favorite,
 .btn.primary.save {
   width: 50%;
-  margin-bottom: 1rem;
+}
+
+.btn-container,
+.btn-container-col {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .btn-container {
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
 }
 
 .btn-container-col {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
 }
 
 .container {
@@ -96,13 +97,22 @@ header .link.active {
 
 .home-container {
   display: flex;
+  gap: 1rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
 }
 
 .home-container .form-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-basis: 500px;
+  /* Tablet and up we need set the flex basis */
+  /* flex-basis: 500px; */
   border: 0.25rem solid black;
   border-radius: 0.25rem;
   box-sizing: border-box;
@@ -120,7 +130,25 @@ header .link.active {
   border: 0.25rem solid black;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  margin-left: 1rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .home-container .form-container,
+  .home-container .results-container {
+    width: 100%;
+  }
+
+  .results-container h2 {
+    margin: 0;
+  }
+}
+
+/* Tablet & Desktop */
+@media screen and (min-width: 769px) {
+  .home-container .form-container {
+    flex-basis: 40%;
+  }
 }
 
 .icon-btn {

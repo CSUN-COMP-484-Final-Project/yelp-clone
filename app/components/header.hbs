@@ -1,7 +1,20 @@
 <header>
   <LinkTo @route='home' class='home'><h1>Not Yelp</h1></LinkTo>
   <div class='link-group'>
-    <LinkTo @route='saved-for-later' class='link'>Saved for Later</LinkTo>
-    <LinkTo @route='favorites' class='link'>Favorites</LinkTo>
+    {{#if (media 'isMobile')}}
+      <LinkTo @route='saved-for-later' class='link'>
+        <i class='bi bi-bookmarks-fill'></i>
+      </LinkTo>
+      <LinkTo @route='favorites' class='link'>
+        <i class='bi bi-heart-fill'></i>
+      </LinkTo>
+    {{else}}
+      <LinkTo @route='saved-for-later' class='link'>
+        Saved for Later
+      </LinkTo>
+      <LinkTo @route='favorites' class='link'>
+        Favorites
+      </LinkTo>
+    {{/if}}
   </div>
 </header>
