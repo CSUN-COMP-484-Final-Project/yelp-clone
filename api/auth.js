@@ -37,7 +37,7 @@ async function authenticate(req) {
 
 function capabilities(context) {
   if (context?.user) {
-    return ['yelp/businesses/search'];
+    return ['yelp/businesses', 'yelp/businesses/search'];
   }
   return [];
 }
