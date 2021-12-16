@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
+// Model / Controller layer for the FavoritesList component
+// Provides data and logic for the corresponding View layer (template)
 export default class FavoritesListComponent extends Component {
   @service store;
 

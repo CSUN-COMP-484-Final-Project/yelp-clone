@@ -3,6 +3,8 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { toMeters } from '../helpers/to-meters';
 
+// Model / Controller layer for the Form component
+// Provides data and logic for the corresponding View layer (template)
 export default class FormComponent extends Component {
   @service yelp;
   @service store;

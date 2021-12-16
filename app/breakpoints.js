@@ -1,3 +1,4 @@
+// Specified media breakpoints for use with ember-responsive
 export default {
   mobile: '(max-width: 768px)',
   tablet: '(min-width: 769px) and (max-width: 1024px)',

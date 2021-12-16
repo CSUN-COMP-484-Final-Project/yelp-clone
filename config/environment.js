@@ -30,6 +30,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    // Our API' development configuration
     ENV.APP.API_URL = 'http://localhost:4201/';
     ENV.APP.API_TOKEN =
       'rqO2vFYm3NXhwVF1F7VHNEoscxr2OWV2wsqYtSsmEGGbWqSbkSwC3qsXEjBqjkCdeejCIL/sh7aRXWhwDUah5w==';
@@ -49,6 +50,8 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+
+    // Our API's production configuration
     ENV.APP.API_URL = 'https://not-yelp.suprsoftware.io/';
     ENV.APP.API_TOKEN =
       'FzF3sPnEBxJ0TnGjBAh1b7iZ+01u+T5KgoC+EYrqGqOWFHGwxafGE3TWIxZgUSMzAyr8u4j0ljilJBcdd1Nn6g==';

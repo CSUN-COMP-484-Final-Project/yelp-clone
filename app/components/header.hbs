@@ -1,4 +1,6 @@
+{{! Header component }}
 <header>
+  {{! ember.js LinkTo component helps us navigate to other pages as specified by the Router }}
   <LinkTo @route='home' class='home'><h1>Not Yelp</h1></LinkTo>
   <div class='link-group'>
     {{#if (media 'isMobile')}}
