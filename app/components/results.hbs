@@ -76,12 +76,12 @@
                   >Price:&nbsp;{{business.price}}</h4></div>
               </div>
               <div class='business-open'>
-                {{#if business.is_closed}}
-                  {{! Closed }}
-                  <span class='closed'>Closed</span>
-                {{else}}
+                {{#if business.is_open_now}}
                   {{! Open }}
                   <span class='open'>Open</span>
+                {{else}}
+                  {{! Closed }}
+                  <span class='closed'>Closed</span>
                 {{/if}}
                 <i class='bi bi-dot'></i>
                 <div class='business-distance'>
