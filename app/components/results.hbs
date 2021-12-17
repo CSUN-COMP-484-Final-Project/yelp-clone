@@ -2,13 +2,14 @@
 {{#if this.store.business}}
   {{#if (get this.store.business 0)}}
     {{#let (get this.store.business 0) as |business|}}
+      {{! Should abstract to a Business component }}
       <div>
         <div class='business'>
           <div class='business-details'>
             <div>
               <div class='business-header'>
                 {{#if (media 'isMobile')}}
-                  {{! Combine the name and image }}
+                  {{! Combine the name, categories and image into one row }}
                   <div class='business-name-category'>
                     <h1>{{business.name}}</h1>
                     <div class='business-categories'>

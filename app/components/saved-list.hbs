@@ -2,6 +2,7 @@
 {{#if this.store.saved}}
   {{#if (get this.store.saved 0)}}
     {{#each this.store.saved as |business index|}}
+      {{! Should abstract to a Business component }}
       <Container class='business-item-container'>
         <div>
           <div class='business'>
@@ -9,7 +10,7 @@
               <div>
                 <div class='business-header'>
                   {{#if (media 'isMobile')}}
-                    {{! Combine the name and image }}
+                    {{! Combine the name, categories and image into one row }}
                     <div class='business-name-category'>
                       <h1>{{business.name}}</h1>
                       <div class='business-categories'>
